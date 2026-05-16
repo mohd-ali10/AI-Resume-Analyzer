@@ -37,32 +37,58 @@ function UploadPage({ onAnalysisUpdate }) {
   }
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-8">
-      <h2 className="text-2xl font-bold">Resume Upload</h2>
-      <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-        <input
-          type="file"
-          accept="application/pdf"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
-          className="block w-full rounded-lg border border-slate-300 bg-white p-2 dark:border-slate-700 dark:bg-slate-900"
-        />
-        <textarea
-          value={jobDescription}
-          onChange={(e) => setJobDescription(e.target.value)}
-          rows={8}
-          placeholder="Paste job description here..."
-          className="w-full rounded-lg border border-slate-300 bg-white p-3 dark:border-slate-700 dark:bg-slate-900"
-          required
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white disabled:opacity-60"
-        >
-          {loading ? 'Analyzing...' : 'Upload & Analyze'}
-        </button>
-      </form>
-      {error ? <p className="mt-4 text-red-500">{error}</p> : null}
+    <section className="page-shell max-w-4xl">
+      <div className="surface-card">
+        <h2 className="page-title text-2xl sm:text-3xl">Resume Upload</h2>
+        <p className="page-subtitle mt-1">
+          Add your PDF resume and target role description to receive ATS scoring, skills matching,
+          and tailored suggestions.
+        </p>
+
+        <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="resume-file" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
+              Resume file (PDF)
+            </label>
+            <input
+              id="resume-file"
+              type="file"
+              accept="application/pdf"
+              onChange={(e) => setFile(e.target.files?.[0] || null)}
+              className="input-field file:mr-4 file:rounded-lg file:border-0 file:bg-slate-100 file:px-3 file:py-2 file:text-sm file:font-medium file:text-slate-700 hover:file:bg-slate-200 dark:file:bg-slate-800 dark:file:text-slate-200 dark:hover:file:bg-slate-700"
+              aria-describedby="resume-file-hint"
+            />
+            <p id="resume-file-hint" className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              Only PDF files are supported.
+            </p>
+          </div>
+
+          <div>
+            <label htmlFor="job-description" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
+              Job description
+            </label>
+            <textarea
+              id="job-description"
+              value={jobDescription}
+              onChange={(e) => setJobDescription(e.target.value)}
+              rows={8}
+              placeholder="Paste job description here..."
+              className="textarea-field"
+              required
+            />
+          </div>
+
+          <button type="submit" disabled={loading} className="primary-btn">
+            {loading ? 'Analyzing...' : 'Upload & Analyze'}
+          </button>
+        </form>
+
+        {error ? (
+          <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300" role="alert">
+            {error}
+          </p>
+        ) : null}
+      </div>
     </section>
   )
 }
