@@ -28,14 +28,14 @@ function DashboardPage({ analysis }) {
         <div className="surface-card">
           <p className="text-sm text-slate-500 dark:text-slate-400">ATS Score</p>
           <p className="mt-2 text-3xl font-bold text-indigo-600 dark:text-indigo-300">{atsScore}%</p>
-          <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" role="progressbar" aria-label="ATS score" aria-valuemin={0} aria-valuemax={100} aria-valuenow={atsScore}>
+          <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" role="progressbar" aria-label="ATS score" aria-valuemin="0" aria-valuemax="100" aria-valuenow={atsScore}>
             <div className="h-full rounded-full bg-indigo-600 dark:bg-indigo-400" style={{ width: `${atsScore}%` }} />
           </div>
         </div>
         <div className="surface-card">
           <p className="text-sm text-slate-500 dark:text-slate-400">Similarity</p>
           <p className="mt-2 text-3xl font-bold text-slate-900 dark:text-slate-100">{similarityScore}%</p>
-          <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" role="progressbar" aria-label="Similarity score" aria-valuemin={0} aria-valuemax={100} aria-valuenow={similarityScore}>
+          <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" role="progressbar" aria-label="Similarity score" aria-valuemin="0" aria-valuemax="100" aria-valuenow={similarityScore}>
             <div className="h-full rounded-full bg-emerald-500 dark:bg-emerald-400" style={{ width: `${similarityScore}%` }} />
           </div>
         </div>
