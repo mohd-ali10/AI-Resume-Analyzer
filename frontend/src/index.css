@@ -2,12 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light dark;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
+  @apply min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900 antialiased transition-colors duration-300 dark:from-slate-950 dark:to-slate-950 dark:text-slate-100;
   margin: 0;
-  min-height: 100vh;
 }
 
 #root {
   min-height: 100vh;
+}
+
+a,
+button,
+input,
+textarea {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950;
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50;
+  }
+
+  .page-subtitle {
+    @apply mt-2 max-w-3xl text-base text-slate-600 dark:text-slate-300;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80;
+  }
+
+  .primary-btn {
+    @apply inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .input-field {
+    @apply block w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
+  }
+
+  .textarea-field {
+    @apply input-field min-h-40 resize-y;
+  }
+
+  .pill {
+    @apply rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200;
+  }
 }

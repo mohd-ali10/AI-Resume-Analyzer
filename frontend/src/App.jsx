@@ -16,8 +16,11 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-indigo-700">
+        Skip to content
+      </a>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main>
+      <main id="main-content" className="pb-10">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/upload" element={<UploadPage onAnalysisUpdate={setAnalysis} />} />
