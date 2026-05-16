@@ -19,6 +19,54 @@ Full-stack application for analyzing resumes and measuring alignment with job de
 - [backend/requirements.txt](backend/requirements.txt) - Python dependencies
 - [frontend/src/pages/UploadPage.jsx](frontend/src/pages/UploadPage.jsx) - Upload UI and client flow
 
+**Full project structure**
+
+```text
+AI-Resume-Analyzer/
+├── README.md
+├── backend/
+│   ├── requirements.txt
+│   ├── .env.example
+│   ├── app/
+│   │   ├── __init__.py
++│   │   ├── main.py
+   │   ├── config.py
+   │   ├── database.py
+   │   ├── models.py
+   │   ├── schemas.py
+   │   ├── routers/
+   │   │   ├── __init__.py
+   │   │   └── resume.py
+   │   └── services/
+   │       ├── __init__.py
+   │       ├── analyzer.py
+   │       └── resume_parser.py
+   └── tests/
+     └── test_analyzer.py
+├── frontend/
+│   ├── package.json
+│   ├── README.md
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+   ├── postcss.config.js
+   ├── eslint.config.js
+   ├── public/
+   └── src/
+     ├── main.jsx
+     ├── App.jsx
+     ├── index.css
+     ├── api/
+     │   └── client.js
+     ├── components/
+     │   └── NavBar.jsx
+     └── pages/
+       ├── HomePage.jsx
+       ├── DashboardPage.jsx
+       ├── SkillsGapPage.jsx
+       └── UploadPage.jsx
+```
+
 **Table of contents**
 - **Prerequisites**
 - **Local setup (backend)**
